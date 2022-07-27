@@ -1,0 +1,25 @@
+name: Terraform Pipeline
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY}}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
+    steps:
+      - uses: actions/checkout@v3
+
+      
+      # Runs a single command using the runners shell
+      - name: Init
+        run: |
+          terraform init 
+
+      - name: Apply
+        run:
+          terraform apply -auto-approve
