@@ -1,7 +1,5 @@
 provider "aws" {
 	region = "us-east-1"
-    access_key = "AKIAREHQL3A6Q5NRETVX"
-    secret_key = "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"
 }
 
 
@@ -46,8 +44,6 @@ terraform {
     bucket = "terraform-state-hashicorp-vault"
     key    = "path/to/my/db"
     region = "us-east-1"
-    access_key = "AKIAREHQL3A6Q5NRETVX"
-    secret_key = "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"
   }
 }
 resource "aws_db_subnet_group" "db" {
